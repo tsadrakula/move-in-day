@@ -10,9 +10,9 @@ interface FramedPhotoProps {
 
 export function FramedPhoto({ src, alt, size = 'medium' }: FramedPhotoProps) {
   const sizes = {
-    small: { width: 60, height: 75, frame: 8 },
-    medium: { width: 80, height: 100, frame: 10 },
-    large: { width: 100, height: 125, frame: 12 },
+    small: { width: 70, height: 88, frame: 6 },
+    medium: { width: 95, height: 120, frame: 8 },
+    large: { width: 120, height: 150, frame: 10 },
   };
 
   const { width, height, frame } = sizes[size];

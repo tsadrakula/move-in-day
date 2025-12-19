@@ -10,19 +10,18 @@ interface LivingRoomSceneProps {
   targetDate: Date;
 }
 
-// Placeholder images - replace with actual photos
 const framedPhotos = [
-  { src: '/photos/photo1.jpg', alt: 'Trenton and Sydney' },
-  { src: '/photos/photo2.jpg', alt: 'Engagement photo' },
-  { src: '/photos/photo3.jpg', alt: 'Together' },
+  { src: '/photos/photo1.webp', alt: 'Trenton and Sydney' },
+  { src: '/photos/photo2.webp', alt: 'Engagement photo' },
+  { src: '/photos/photo3.webp', alt: 'Together' },
 ];
 
 const polaroidPhotos = [
-  { src: '/photos/polaroid1.jpg', alt: 'Adventure', rotation: -8, variant: 'tape' as const },
-  { src: '/photos/polaroid2.jpg', alt: 'Fun times', rotation: 5, variant: 'pin' as const },
-  { src: '/photos/polaroid3.jpg', alt: 'Love', rotation: -3, variant: 'tape' as const },
-  { src: '/photos/polaroid4.jpg', alt: 'Memories', rotation: 6, variant: 'pin' as const },
-  { src: '/photos/polaroid5.jpg', alt: 'Us', rotation: -4, variant: 'tape' as const },
+  { src: '/photos/polaroid1.webp', alt: 'Adventure', rotation: -8, variant: 'tape' as const },
+  { src: '/photos/polaroid2.webp', alt: 'Fun times', rotation: 5, variant: 'pin' as const },
+  { src: '/photos/polaroid3.webp', alt: 'Love', rotation: -3, variant: 'tape' as const },
+  { src: '/photos/polaroid4.webp', alt: 'Memories', rotation: 6, variant: 'pin' as const },
+  { src: '/photos/polaroid5.webp', alt: 'Us', rotation: -4, variant: 'tape' as const },
 ];
 
 export function LivingRoomScene({ targetDate }: LivingRoomSceneProps) {
@@ -59,16 +58,16 @@ export function LivingRoomScene({ targetDate }: LivingRoomSceneProps) {
         </div>
 
         {/* Framed photos on left wall - below window on desktop */}
-        <div className="absolute left-10 top-56 lg:top-52 hidden md:flex flex-col items-center gap-3 z-20">
-          <FramedPhoto src={framedPhotos[0].src} alt={framedPhotos[0].alt} size="medium" />
-          <div className="flex gap-2">
-            <FramedPhoto src={framedPhotos[1].src} alt={framedPhotos[1].alt} size="small" />
-            <FramedPhoto src={framedPhotos[2].src} alt={framedPhotos[2].alt} size="small" />
+        <div className="absolute left-14 top-64 lg:top-60 hidden md:flex flex-col items-center gap-4 z-20">
+          <FramedPhoto src={framedPhotos[0].src} alt={framedPhotos[0].alt} size="large" />
+          <div className="flex gap-3">
+            <FramedPhoto src={framedPhotos[1].src} alt={framedPhotos[1].alt} size="medium" />
+            <FramedPhoto src={framedPhotos[2].src} alt={framedPhotos[2].alt} size="medium" />
           </div>
         </div>
 
         {/* Calendar on right - part of the wall scene */}
-        <div className="absolute top-6 right-6 z-20 hidden md:block">
+        <div className="absolute top-64 lg:top-60 right-6 z-20 hidden md:block">
           <CountdownCalendar targetDate={targetDate} />
         </div>
 
