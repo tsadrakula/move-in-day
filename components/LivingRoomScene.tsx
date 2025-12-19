@@ -59,7 +59,7 @@ export function LivingRoomScene({ targetDate }: LivingRoomSceneProps) {
         </div>
 
         {/* Framed photos on left wall - below window on desktop */}
-        <div className="absolute left-6 top-52 lg:top-48 hidden md:flex flex-col items-center gap-3 z-20">
+        <div className="absolute left-10 top-56 lg:top-52 hidden md:flex flex-col items-center gap-3 z-20">
           <FramedPhoto src={framedPhotos[0].src} alt={framedPhotos[0].alt} size="medium" />
           <div className="flex gap-2">
             <FramedPhoto src={framedPhotos[1].src} alt={framedPhotos[1].alt} size="small" />
