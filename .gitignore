@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# original photos (keep only optimized webp)
+public/photos/*.HEIC
+public/photos/*.JPG
+public/photos/*.JPEG
+public/photos/*.PNG
+public/photos/*.heic
+public/photos/*.jpg
+public/photos/*.jpeg
+public/photos/*.png
