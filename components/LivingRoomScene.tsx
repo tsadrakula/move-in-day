@@ -11,7 +11,7 @@ interface LivingRoomSceneProps {
 }
 
 // Placeholder images - replace with actual photos
-const mantelPhotos = [
+const framedPhotos = [
   { src: '/photos/photo1.jpg', alt: 'Trenton and Sydney' },
   { src: '/photos/photo2.jpg', alt: 'Engagement photo' },
   { src: '/photos/photo3.jpg', alt: 'Together' },
@@ -46,7 +46,7 @@ export function LivingRoomScene({ targetDate }: LivingRoomSceneProps) {
           }}
         />
 
-        {/* Window on left - higher z-index so it's not covered */}
+        {/* Window on left */}
         <div className="absolute top-8 left-6 w-28 h-36 bg-sky-100 rounded border-[10px] border-amber-800 shadow-lg hidden lg:block z-20">
           <div className="absolute inset-0 bg-gradient-to-b from-sky-200 via-sky-100 to-sky-50" />
           <div className="absolute inset-0 flex">
@@ -58,6 +58,15 @@ export function LivingRoomScene({ targetDate }: LivingRoomSceneProps) {
           <div className="absolute -right-5 -top-2 w-7 h-40 bg-[#FDF8F3] rounded-b opacity-90 shadow-sm" />
         </div>
 
+        {/* Framed photos on left wall - below window on desktop */}
+        <div className="absolute left-6 top-52 lg:top-48 hidden md:flex flex-col items-center gap-3 z-20">
+          <FramedPhoto src={framedPhotos[0].src} alt={framedPhotos[0].alt} size="medium" />
+          <div className="flex gap-2">
+            <FramedPhoto src={framedPhotos[1].src} alt={framedPhotos[1].alt} size="small" />
+            <FramedPhoto src={framedPhotos[2].src} alt={framedPhotos[2].alt} size="small" />
+          </div>
+        </div>
+
         {/* Calendar on right - part of the wall scene */}
         <div className="absolute top-6 right-6 z-20 hidden md:block">
           <CountdownCalendar targetDate={targetDate} />
@@ -65,7 +74,7 @@ export function LivingRoomScene({ targetDate }: LivingRoomSceneProps) {
 
         {/* Main content - Desktop layout */}
         <div className="hidden md:flex flex-col items-center justify-center pt-4 relative z-10">
-          {/* Top row - polaroids spread in the middle area (not touching window or calendar) */}
+          {/* Top row - polaroids spread in the middle area */}
           <div className="flex justify-center items-start gap-8 lg:gap-16 mb-6">
             <div className="transform -translate-y-2">
               <PolaroidPhoto {...polaroidPhotos[0]} />
@@ -78,16 +87,9 @@ export function LivingRoomScene({ targetDate }: LivingRoomSceneProps) {
             </div>
           </div>
 
-          {/* Fireplace with mantel photos */}
+          {/* Fireplace - no photos on mantel now */}
           <div className="relative mt-4">
             <Fireplace />
-
-            {/* Photos on mantel */}
-            <div className="absolute -top-20 left-1/2 -translate-x-1/2 flex items-end gap-4 lg:gap-6">
-              <FramedPhoto src={mantelPhotos[0].src} alt={mantelPhotos[0].alt} size="small" />
-              <FramedPhoto src={mantelPhotos[1].src} alt={mantelPhotos[1].alt} size="large" />
-              <FramedPhoto src={mantelPhotos[2].src} alt={mantelPhotos[2].alt} size="medium" />
-            </div>
           </div>
 
           {/* Bottom row polaroids */}
@@ -108,20 +110,22 @@ export function LivingRoomScene({ targetDate }: LivingRoomSceneProps) {
             <CountdownCalendar targetDate={targetDate} />
           </div>
 
+          {/* Framed photos row on mobile */}
+          <div className="flex justify-center items-end gap-2 mb-4">
+            <FramedPhoto src={framedPhotos[0].src} alt={framedPhotos[0].alt} size="small" />
+            <FramedPhoto src={framedPhotos[1].src} alt={framedPhotos[1].alt} size="medium" />
+            <FramedPhoto src={framedPhotos[2].src} alt={framedPhotos[2].alt} size="small" />
+          </div>
+
           {/* Polaroids row 1 */}
           <div className="flex justify-center gap-2 mb-4">
             <PolaroidPhoto {...polaroidPhotos[0]} />
             <PolaroidPhoto {...polaroidPhotos[1]} />
           </div>
 
-          {/* Fireplace with mantel photos */}
+          {/* Fireplace */}
           <div className="relative scale-90">
             <Fireplace />
-            <div className="absolute -top-16 left-1/2 -translate-x-1/2 flex items-end gap-2">
-              <FramedPhoto src={mantelPhotos[0].src} alt={mantelPhotos[0].alt} size="small" />
-              <FramedPhoto src={mantelPhotos[1].src} alt={mantelPhotos[1].alt} size="medium" />
-              <FramedPhoto src={mantelPhotos[2].src} alt={mantelPhotos[2].alt} size="small" />
-            </div>
           </div>
 
           {/* Polaroids row 2 */}
