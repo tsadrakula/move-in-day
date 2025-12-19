@@ -3,7 +3,6 @@
 import { LivingRoomScene } from '@/components/LivingRoomScene';
 import { QuoteRotator } from '@/components/QuoteRotator';
 import { MoveInCelebration } from '@/components/MoveInCelebration';
-import { CountdownCalendar } from '@/components/CountdownCalendar';
 import { useCountdown } from '@/hooks/useCountdown';
 
 // Move-in date: February 6, 2026
@@ -20,7 +19,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#FDF8F3] py-6 md:py-8 px-4">
       {/* Title */}
-      <header className="text-center mb-4 md:mb-6">
+      <header className="text-center mb-6 md:mb-8">
         <h1 className="font-[family-name:var(--font-playfair)] text-2xl md:text-4xl text-[#8B7355] mb-1 md:mb-2">
           Trenton & Sydney&apos;s
         </h1>
@@ -29,20 +28,15 @@ export default function Home() {
         </h2>
       </header>
 
-      {/* Countdown - centered and prominent on all screens */}
-      <div className="flex justify-center mb-4 md:mb-6">
-        <CountdownCalendar targetDate={TARGET_DATE} />
-      </div>
-
-      {/* Quote - below countdown on all screens */}
-      <div className="mb-6 md:mb-8">
-        <QuoteRotator />
-      </div>
-
-      {/* Living Room Scene */}
+      {/* Living Room Scene (includes countdown calendar) */}
       <main className="mb-8">
         <LivingRoomScene targetDate={TARGET_DATE} />
       </main>
+
+      {/* Rotating Quotes */}
+      <footer className="pb-8">
+        <QuoteRotator />
+      </footer>
     </div>
   );
 }
